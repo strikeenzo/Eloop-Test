@@ -22,6 +22,7 @@ def create_chrome_drive(host="localhost:8989", wait_time=10):
 
 def create_chrome_drive_with_port(port=8999, data_dir="E:\\ChromeProfile\\"):
     chrome_options = Options()
+    chrome_options.add_argument('--headless')
     chrome_options.add_argument(f'--remote-debugging-port={port}')
     chrome_options.add_argument(f'--user-data-dir={data_dir}')
     driver = webdriver.Chrome(options=chrome_options)
