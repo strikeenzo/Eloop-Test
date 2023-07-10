@@ -1,8 +1,10 @@
 # Eloop
 
-This is a Eloop Test Frontend using react, typescript, redux and Tailwind.
+This is a Eloop Test Project.
 
-## How to run
+## Frontend
+
+### How to run
 
 - Install `node_modules`
 
@@ -15,10 +17,12 @@ This is a Eloop Test Frontend using react, typescript, redux and Tailwind.
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Technical Stacks
+### Technical Stacks
 
 - React ^18.2.0
 - TypeScript ^4.4.2
 - TailwindCSS ^3.3.2
 - redux/toolkit ^1.9.5
 - axios ^1.4.0
+
+## Backend

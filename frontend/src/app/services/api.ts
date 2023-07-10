@@ -20,6 +20,11 @@ axiosInstance.interceptors.response.use(
   },
 )
 
-const api = {}
+const api = {
+  getData: (url: string) =>
+    axiosInstance.post('/', {
+      url,
+    }),
+}
 
 export default api
