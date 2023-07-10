@@ -50,25 +50,21 @@ def get_data(url = ACCOUNT_URL):
     print('article count:', len(articles))
 
     for article in articles:
-        article_content, article_url, article_img = article.text, None, None
+        article_content, article_title, article_url, article_img = article.text, None, None, None
         infos = article_content.split('\n')
-
+        article_url = article.find_element(By.TAG_NAME, 'a').get_attribute('href')
+        article_info = article.find_element(By.TAG_NAME, 'h2').find_element(By.XPATH, 'parent::div')
+        article_title = article_info.find_element(By.TAG_NAME, 'h2').text
+        article_info = article_info.find_element(By.XPATH, 'following-sibling::div[1]')
         try:
             article_img = article.find_element(By.TAG_NAME, 'img').get_attribute('src')
-            article_url = article.find_element(By.TAG_NAME, 'a').get_attribute('href')
         except Exception as e:
             print(e)
 
-        print('Date', infos[0])
-        print('Article Title', infos[1])
-        print('Article Content', infos[2])
-        print('Article Type', infos[3])
-        print('Article Status', infos[4])
-
         article_info = {
             "created_date": infos[0],
-            "article_title": infos[1],
-            "article_content": infos[2],
+            "article_title": article_title,
+            "article_content": article_info.text,
             "article_type": infos[3],
             "article_status": infos[4],
             "article_img": article_img,
